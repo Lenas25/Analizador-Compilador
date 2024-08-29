@@ -5,7 +5,7 @@
 // 1. Se crea un array de objetos que almacenara el nombre de cada token y su expresion regular correspondiente a la gramatica del lenguaje
 const tokens = [
   {
-    type: "REVERVADAS",
+    type: "RESERVADAS",
     regex:
       /^(public|class|static|void|int|String|System.out.println|args|double|main|if|while|for|else|def)/,
   },
@@ -66,7 +66,21 @@ const lex = (input) => {
   return tokensReconocidos;
 };
 
+// no pueden haber 2 identificadores juntos sin una coma
+
 let input =
   "public class HelloWorld { public static void main(String[] args) { System.out.println('Hello, World!'); } }";
 const tokensReconocidos = lex(input);
 console.log(tokensReconocidos);
+
+
+const analizar = () => {
+  const input = document.getElementById("input").value;
+  const tokensReconocidos = lex(input);
+  const output = document.getElementById("output");
+  output.innerHTML = "<tr>";
+  tokensReconocidos.forEach((token) => {
+    output.innerHTML += `<td>${JSON.stringify(token)}</td>`;
+  });
+  output.innerHTML += "</tr>";
+}
