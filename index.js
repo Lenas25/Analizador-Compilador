@@ -68,12 +68,6 @@ const lex = (input) => {
 
 // no pueden haber 2 identificadores juntos sin una coma
 
-let input =
-  "public class HelloWorld { public static void main(String[] args) { System.out.println('Hello, World!'); } }";
-const tokensReconocidos = lex(input);
-console.log(tokensReconocidos);
-
-
 const analizar = () => {
   const input = document.getElementById("input").value;
   const tokensReconocidos = lex(input);
@@ -88,4 +82,13 @@ const analizar = () => {
 const reset = () => {
   document.getElementById("input").value = "";
   document.getElementById("output").innerHTML = "";
+}
+
+const downloadFile = () => {
+  const blob = new Blob([document.getElementById("input").value], { type: "text/plain" });
+  const url = window.URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.download = "codigoResultados.txt";
+  link.href = url;
+  link.click();
 }
