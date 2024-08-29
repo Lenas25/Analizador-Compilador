@@ -80,7 +80,12 @@ const analizar = () => {
   const output = document.getElementById("output");
   output.innerHTML = "<tr>";
   tokensReconocidos.forEach((token) => {
-    output.innerHTML += `<td>${JSON.stringify(token)}</td>`;
+    output.innerHTML += `<td>${token.type}</td><td>${token.value}</td>`;
   });
   output.innerHTML += "</tr>";
+}
+
+const reset = () => {
+  document.getElementById("input").value = "";
+  document.getElementById("output").innerHTML = "";
 }

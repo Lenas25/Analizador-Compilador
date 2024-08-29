@@ -15,11 +15,11 @@
   <main>
     <div class="lexer">
       <div class="code">
-        <div class="code-actions">
-          <button onclick="analizar()"><i class="lni lni-save"></i> Analizar</button>
-          <button><i class="lni lni-empty-file"></i>Nuevo</button>
-        </div>
-        <textarea id="input" placeholder="Escribe tu código aquí"></textarea >
+          <div class="code-actions">
+            <button onclick="analizar()"><i class="lni lni-save"></i> Analizar</button>
+            <button onclick="reset()" type="reset"><i class="lni lni-empty-file"></i>Nuevo</button>
+          </div>
+          <textarea id="input" placeholder="Escribe tu código aquí"></textarea>
       </div>
       <div class="result">
         <table>
