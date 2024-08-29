@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css">
+  <title>Analizador Lexico | Elena Suarez</title>
+</head>
+<body>
+  <header>
+    <h1>Analizador Lexico <br>
+      <i class="lni lni-keyboard"></i></h1>
+  </header>
+  <main>
+    <div class="lexer">
+      <div class="code">
+        <div class="code-actions">
+          <button onclick="analizar()"><i class="lni lni-save"></i> Analizar</button>
+          <button><i class="lni lni-empty-file"></i>Nuevo</button>
+        </div>
+        <textarea id="input" placeholder="Escribe tu código aquí"></textarea >
+      </div>
+      <div class="result">
+        <table>
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Lexema</th>
+            </tr>
+          </thead>
+          <tbody id="output">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="options">
+      <button><i class="lni lni-download"></i></button>
+      <button><i class="lni lni-library"></i></button>
+      <button><i class="lni lni-notepad"></i> </button>
+    </div>
+  </main>
+  <footer>By Elena Suarez</footer>
+  <script src="index.js"></script>
+</body>
+</html>
