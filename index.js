@@ -75,13 +75,14 @@ const analizar = () => {
     output.innerHTML += `<td>${token.type}</td><td>${token.value}</td>`;
   });
   output.innerHTML += "</tr>";
-  verAnalisDetallado(tokensReconocidos);
+  verAnalisisDetallado(tokensReconocidos);
 };
 
 // 4. Funcion que se encarga de limpiar el textarea y la tabla de resultados
 const reset = () => {
   document.getElementById("input").value = "";
   document.getElementById("output").innerHTML = "";
+  document.getElementById("analisisDetallado").innerHTML = "";
 };
 
 // 5. Funcion que se encarga de descargar los resultados en un archivo pdf, se crea un string con el contenido que se desea que aparezca, se verifica si jsPDF esta disponible, se crea un documento pdf y se agrega el string al pdf, se obtienen los datos de la tabla y se agrega la tabla al pdf y se descarga con el boton asociado a esta funcion
@@ -128,7 +129,7 @@ const downloadFile = () => {
 
 
 // 6. Funcion que se encarga de mostrar un analisis detallado de los tokens reconocidos en una tabla en el html, este incluye el tipo de token, el lexema, la fila y el indice
-const verAnalisDetallado = (tokensReconocidos) => {
+const verAnalisisDetallado = (tokensReconocidos) => {
   const analisisDetallado = document.getElementById("analisisDetallado"); // obtener el elemento donde se mostrara la tabla
   analisisDetallado.innerHTML =
     "<thead><tr><th>Token</th><th>Lexema</th><th>Fila</th><th>Indice</th></tr></thead><tr>";
