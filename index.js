@@ -29,13 +29,13 @@ const tokens = [
 
 // 2. Se crea una funcion que recibe un string que es el codigo fuente y retorna un array de tokens reconocidos y arroja un alert en caso haya un token que no se haya reconocido, todo mediante una funcion misma de javascript match que te permite buscar una expresion regular en un string y retorna un array con los resultados en este caso solo se busca el primer match y se almacena en un array de objetos con el tipo de token, el valor del token, la linea y el indice, en este caso se ignora los espacios y saltos de linea
 const lex = (input) => {
-  let tokensReconocidos = []; // array de tokens reconocidos que se van a retornar
+  const tokensReconocidos = []; // array de tokens reconocidos que se van a retornar
   let numLineas = 1; // variable que almacena el numero de lineas en la que se encuentra cada token
   let positionRecorrido = 0; // variable que almacena la posicion en la que se encuentra el recorrido
 
   while (positionRecorrido < input.length) {
     let match = null; // variable que almacena el match de la expresion regular
-    for (let token of tokens) {
+    for (const token of tokens) {
       match = input.slice(positionRecorrido).match(token.regex);
       if (match) {
         if (match[0].includes("\n")) {
@@ -61,6 +61,7 @@ const lex = (input) => {
       return;
     }
   }
+  localStorage.setItem("tokensReconocidos", JSON.stringify(tokensReconocidos));
   return tokensReconocidos;
 };
 
@@ -107,13 +108,14 @@ const downloadFile = () => {
     // Obtener los datos de la tabla
     const tableData = [];
     const rows = document.querySelectorAll("#output tr");
-    rows.forEach((row) => {
+
+    for (const row of rows) {
       const rowData = [];
-      row.querySelectorAll("td, th").forEach((cell) => {
+      for(const cell of row.querySelectorAll("td, th")) {
         rowData.push(cell.innerText);
-      });
+      }
       tableData.push(rowData);
-    });
+    }
 
     doc.autoTable({
       head: [tableData[0]], 
