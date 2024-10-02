@@ -9,7 +9,7 @@ const tokens = [
   {
     type: "RESERVADAS",
     regex:
-      /^(public|class|static|void|int|String|System.out.println|args|double|main|if|while|for|else|def|package|import|java)/,
+      /^(public|class|static|void|int|String|System.out.println|args|double|main|if|while|for|else|def|package|import|java|return)/,
   },
   { type: "CADENA", regex: /^('[^']*'|"[^"]*")/ },
   { type: "NUMERO", regex: /^\d+/ },
